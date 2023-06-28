@@ -15,7 +15,7 @@ const SITEMAP = [
   },
   {
     title: "Products",
-    links: ["Templates", "UI Kits", "Icons", "Mockups"],
+    links: ["Kits", "UI Kits", "Icons", "Mockups"],
   },
 ];
 
