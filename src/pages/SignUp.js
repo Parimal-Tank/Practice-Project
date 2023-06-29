@@ -16,6 +16,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 import { Signup } from "../Apis/Authapis";
+import { useCookies } from "react-cookie";
 
 // For Password Encrypt and decrypt
 const bcrypt = require("bcryptjs-react");
@@ -61,6 +62,7 @@ const SignUp = () => {
   const [openError, setOpenError] = useState(false);
 
   const [openSuccess, setOpenSuccess] = useState(false);
+  const [cookies, setCookie] = useCookies(["token"]);
 
   const navigate = useNavigate();
 
@@ -97,9 +99,14 @@ const SignUp = () => {
     };
 
     const responce = await Signup(user);
-    console.log("responce: ", responce);
+
+    // setCookie("token", responce.data.token, { path: "/" });
+
+    // console.log("responce: ", responce);
 
     handleSuccess();
+
+    navigate("/verification");
   };
 
   return (
